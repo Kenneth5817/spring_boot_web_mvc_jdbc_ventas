@@ -1,6 +1,7 @@
 package org.iesvdm.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.iesvdm.dao.ClienteDAO;
 import org.iesvdm.modelo.Cliente;
@@ -21,9 +22,33 @@ public class ClienteService {
 	public List<Cliente> listAll() {
 		
 		return clienteDAO.getAll();
-		
 	}
-	
-	
+
+	public Cliente one(Integer id) {
+		Optional<Cliente> optFab = clienteDAO.find(id);
+		if (optFab.isPresent())
+			return optFab.get();
+		else
+			return null;
+	}
+
+	public void newCliente(Cliente cliente) {
+
+		this.clienteDAO.create(cliente);
+
+	}
+
+	public void replaceCliente(Cliente cliente) {
+
+		clienteDAO.update(cliente);
+
+	}
+
+	public void deleteCliente(int id) {
+
+		clienteDAO.delete(id);
+
+	}
+
 
 }

@@ -27,8 +27,8 @@ public class ClienteDAOImpl implements ClienteDAO {
 	/**
 	 * Inserta en base de datos el nuevo Cliente, actualizando el id en el bean Cliente.
 	 */
-	@Override	
-	public synchronized void create(Cliente cliente) {
+	@Override
+	public void create(Cliente cliente) {
 		
 							//Desde java15+ se tiene la triple quote """ para bloques de texto como cadenas.
 		String sqlInsert = """

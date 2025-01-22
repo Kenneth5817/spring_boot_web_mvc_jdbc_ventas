@@ -1,72 +1,67 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Clientes</title>
-<style>
-.clearfix::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-</style>
+	<meta charset="UTF-8">
+	<title>Clientes</title>
+	<!-- Incluimso Bootstrap desde un CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<body>
+<div class="container mt-4">
 
-	<div id="contenedora" style="float:none; margin: 0 auto;width: 95%;" >
-		<div class="clearfix">
-			<div style="float: left; width: 50%">
-				<h1>Clientes</h1>
-			</div>
-			<div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
-				
-				<div style="position: absolute; left: 39%; top : 39%;">
-					
-						<form action="/clientes/crear">
-							<input type="submit" value="Crear">
-						</form>
-					</div>
-				
-			</div>
+	<!-- Título y botón para crear cliente -->
+	<div class="row mb-3">
+		<div class="col-6">
+			<h1>Clientes</h1>
 		</div>
-		<div class="clearfix">
-			<hr/>
+		<div class="col-6 text-end">
+			<form action="/clientes/crear">
+				<button type="submit" class="btn btn-primary">Crear</button>
+			</form>
 		</div>
-		<div class="clearfix">
-			<div style="float: left;width: 14%">Id</div>
-			<div style="float: left;width: 14%">Nombre</div>
-			<div style="float: left;width: 14%">Apellido1</div>
-			<div style="float: left;width: 14%">Apellido2</div>
-			<div style="float: left;width: 14%">Ciudad</div>
-			<div style="float: left;width: 14%">Categoría</div>
-			<div style="float: none;width: auto;overflow: hidden;">Acción</div>
-		</div>
-		<div class="clearfix">
-			<hr/>
-		</div>
+	</div>
 
-		<div  th:each="cliente : ${listaClientes}" style="margin-top: 6px;" class="clearfix">
-			<div style="float: left;width: 14%" th:text="${cliente.id}">0</div>
-			<div style="float: left;width: 14%" th:text="${cliente.nombre}">nombre</div>
-			<div style="float: left;width: 14%" th:text="${cliente.apellido1}">apellido1</div>
-			<div style="float: left;width: 14%" th:text="${cliente.apellido2 ?: '&nbsp;'}">apellido2</div>
-			<div style="float: left;width: 14%" th:text="${cliente.ciudad}">ciudad</div>
-			<div style="float: left;width: 14%" th:text="${cliente.categoria}">categoría</div>
-			<div style="float: none;width: auto;overflow: hidden;">
+	<hr/>
+
+	<!-- Encabezado de la tabla -->
+	<div class="row">
+		<div class="col-1"><strong>Id</strong></div>
+		<div class="col-2"><strong>Nombre</strong></div>
+		<div class="col-2"><strong>Apellido1</strong></div>
+		<div class="col-2"><strong>Apellido2</strong></div>
+		<div class="col-2"><strong>Ciudad</strong></div>
+		<div class="col-2"><strong>Categoría</strong></div>
+		<div class="col-1"><strong>Acción</strong></div>
+	</div>
+
+	<hr/>
+
+	<!-- Lista de clientes -->
+	<div th:each="cliente : ${listaClientes}">
+		<div class="row mb-2">
+			<div class="col-1" th:text="${cliente.id}">0</div>
+			<div class="col-2" th:text="${cliente.nombre}">nombre</div>
+			<div class="col-2" th:text="${cliente.apellido1}">apellido1</div>
+			<div class="col-2" th:text="${cliente.apellido2 ?: '&nbsp;'}">apellido2</div>
+			<div class="col-2" th:text="${cliente.ciudad}">ciudad</div>
+			<div class="col-2" th:text="${cliente.categoria}">categoría</div>
+			<div class="col-1">
 				<form th:action="@{/clientes/__${cliente.id}__}" style="display: inline;">
-    				<input type="submit" value="Ver Detalle" />
+					<button type="submit" class="btn btn-info btn-sm">Ver Detalle</button>
 				</form>
-				<form th:action="@{/clientes/editar/}+${cliente.id} " style="display: inline;">
-    				<input type="submit" value="Editar" />
+				<form th:action="@{/clientes/editar/}+${cliente.id}" style="display: inline;">
+					<button type="submit" class="btn btn-warning btn-sm">Editar</button>
 				</form>
-				<form th:action="@{/clientes/borrar/__${cliente.}_id_}" method="post" style="display: inline;">					
-    				<input type="submit" value="Eliminar" />
+				<form th:action="@{/clientes/borrar/__${cliente.id}__}" method="post" style="display: inline;">
+					<button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
 				</form>
 			</div>
 		</div>
 	</div>
-</body>
+
+</div>
+
+<!-- Incluimos Bootstrap JS  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle Producto</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+
+    <div class="row mb-3">
+        <div class="col-6">
+            <h1>Detalle Producto</h1>
+        </div>
+        <div class="col-6 text-end">
+            <form action="/productos">
+                <input type="submit" value="Volver" class="btn btn-secondary">
+            </form>
+        </div>
+    </div>
+
+    <hr/>
+    <div class="row mb-3">
+        <div class="col-3">
+            <label for="codigo" class="form-label">Código</label>
+        </div>
+        <div class="col-9">
+            <input type="text" id="codigo" th:value="${producto.codigo}" class="form-control" readonly>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <label for="nombre" class="form-label">Nombre</label>
+        </div>
+        <div class="col-9">
+            <input type="text" id="nombre" th:value="${producto.nombre}" class="form-control" readonly>
+        </div>
+    </div>
+
+</div>
+
+<!--Enlace a Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.List;
 import org.iesvdm.modelo.Cliente;
+import org.iesvdm.modelo.Pedido;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -130,5 +131,10 @@ public class ComercialDAOImpl implements ComercialDAO {
 
 		log.info("Delete de Cliente con {} registros eliminados.", rows);
 
+	}
+
+	@Override
+	public Comercial obtenerComercialPorId(int idComercial) {
+		return null;
 	}
 }

@@ -44,14 +44,12 @@ public class ComercialController {
 
     }
 
+    //Metodo modificado para poder mostrar en detalle mejor las cosas
     @GetMapping("/comercial/{id}")
-    public String detalle(Model model, @PathVariable Integer id ) {
-
-        Comercial comercial = comercialService.one(id);
-        model.addAttribute("producto", comercial);
-
-        return "detalle-producto";
-
+    public String detalle(@PathVariable("id") int id, Model model) {
+        Comercial comercial = comercialService.obtenerComercialConPedidos(id);
+        model.addAttribute("comercial", comercial);
+        return "detalle-comercial";
     }
 
     @GetMapping("/comercial/crear")

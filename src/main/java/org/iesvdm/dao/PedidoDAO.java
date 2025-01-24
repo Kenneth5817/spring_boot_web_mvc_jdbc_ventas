@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PedidoDAO {
     // Método para obtener los pedidos de un comercial
-    List<Pedido> obtenerPedidosPorComercial(int idComercial);
+    static List<Pedido> obtenerPedidosPorComercial(int idComercial);
 }

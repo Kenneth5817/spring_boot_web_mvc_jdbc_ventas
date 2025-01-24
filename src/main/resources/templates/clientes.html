@@ -12,11 +12,11 @@
 	<!-- Título y botón para crear cliente -->
 	<div class="row mb-3">
 		<div class="col-6">
-			<h1>Clientes</h1>
+			<h1 th:text="#{title.clientes}"></h1>
 		</div>
 		<div class="col-6 text-end">
 			<form action="/clientes/crear">
-				<button type="submit" class="btn btn-primary">Crear</button>
+				<button type="submit" class="btn btn-primary" th:text="#{boton.crear}"></button>
 			</form>
 		</div>
 	</div>
@@ -25,13 +25,13 @@
 
 	<!-- Encabezado de la tabla -->
 	<div class="row">
-		<div class="col-1"><strong>Id</strong></div>
-		<div class="col-2"><strong>Nombre</strong></div>
-		<div class="col-2"><strong>Apellido1</strong></div>
-		<div class="col-2"><strong>Apellido2</strong></div>
-		<div class="col-2"><strong>Ciudad</strong></div>
-		<div class="col-2"><strong>Categoría</strong></div>
-		<div class="col-1"><strong>Acción</strong></div>
+		<div class="col-1" th:text="#{msg.cliente.id}"><strong></strong></div>
+		<div class="col-2" th:text="#{msg.cliente.nombre}"><strong></strong></div>
+		<div class="col-2" th:text="#{msg.cliente.apellido1}"><strong></strong></div>
+		<div class="col-2" th:text="#{msg.cliente.apellido2}"><strong></strong></div>
+		<div class="col-2" th:text="#{msg.cliente.ciudad}"><strong></strong></div>
+		<div class="col-2" th:text="#{msg.cliente.categoria}"><strong></strong></div>
+		<div class="col-1" th:text="#{boton.accion}"><strong></strong></div>
 	</div>
 
 	<hr/>
@@ -47,18 +47,17 @@
 			<div class="col-2" th:text="${cliente.categoria}">categoría</div>
 			<div class="col-1">
 				<form th:action="@{/clientes/__${cliente.id}__}" style="display: inline;">
-					<button type="submit" class="btn btn-info btn-sm">Ver Detalle</button>
+					<button type="submit" class="btn btn-info btn-sm" th:text="#{boton.detalle}"></button>
 				</form>
 				<form th:action="@{/clientes/editar/}+${cliente.id}" style="display: inline;">
-					<button type="submit" class="btn btn-warning btn-sm">Editar</button>
+					<button type="submit" class="btn btn-warning btn-sm" th:text="#{boton.editar}"></button>
 				</form>
 				<form th:action="@{/clientes/borrar/__${cliente.id}__}" method="post" style="display: inline;">
-					<button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+					<button type="submit" class="btn btn-danger btn-sm" th:text="#{boton.eliminar}"></button>
 				</form>
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <!-- Incluimos Bootstrap JS  -->

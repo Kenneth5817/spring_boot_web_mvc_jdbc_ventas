@@ -5,6 +5,7 @@ import org.iesvdm.dao.PedidoDAO;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.modelo.Pedido;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,7 +55,7 @@ public class ComercialService {
     public Comercial obtenerComercialConPedidos(int idComercial) {
         Comercial comercial = comercialDAO.obtenerComercialPorId(idComercial);
         if (comercial != null) {
-            List<Pedido> pedidos = PedidoDAO.obtenerPedidosPorComercial(idComercial);
+            List<Pedido> pedidos = (PedidoDAO.obtenerPedidosPorComercial(idComercial));
             comercialDAO.update((Comercial) pedidos); // Asumiendo que la clase Comercial tiene una lista de pedidos
         }
         return comercial;

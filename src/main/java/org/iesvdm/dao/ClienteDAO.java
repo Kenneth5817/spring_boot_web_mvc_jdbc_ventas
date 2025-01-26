@@ -18,5 +18,6 @@ public interface ClienteDAO {
 	public void update(Cliente cliente);
 	
 	public void delete(long id);
-	
+	public List<Cliente> obtenerClientesPorTotalPedidos();
+	double calcularTotalPedidosCliente(Cliente cliente);
 }

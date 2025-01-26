@@ -2,7 +2,10 @@ package org.iesvdm.modelo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-//La anotación @Data de lombok proporcionará el código de: 
+
+import java.util.List;
+
+//La anotación @Data de lombok proporcionará el código de:
 //getters/setters, toString, equals y hashCode
 //propio de los objetos POJOS o tipo Beans
 @Data
@@ -17,7 +20,11 @@ public class Cliente {
 	private String ciudad;
 	private int categoria;
 
+	private List<Pedido>pedidos;
 	public Cliente() {
 
+	}
+
+	public Cliente(int id, String nombre, String apellido1, String apellido2, String ciudad, int categoría) {
 	}
 }

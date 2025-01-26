@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class ComercialService {
     private ComercialDAO comercialDAO;
-    private PedidoDAO pedidoDAO;
+    private final PedidoDAO pedidoDAO;
 
     //Se utiliza inyección automática por constructor del framework Spring.
     //Por tanto, se puede omitir la anotación Autowired
@@ -55,7 +55,7 @@ public class ComercialService {
     public Comercial obtenerComercialConPedidos(int idComercial) {
         Comercial comercial = comercialDAO.obtenerComercialPorId(idComercial);
         if (comercial != null) {
-            List<Pedido> pedidos = (PedidoDAO.obtenerPedidosPorComercial(idComercial));
+            List<Pedido> pedidos = PedidoDAO.obtenerPedidosPorComercial(idComercial);
             comercialDAO.update((Comercial) pedidos); // Asumiendo que la clase Comercial tiene una lista de pedidos
         }
         return comercial;

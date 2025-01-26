@@ -1,10 +1,13 @@
 package org.iesvdm.service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.iesvdm.dao.ClienteDAO;
 import org.iesvdm.modelo.Cliente;
+import org.iesvdm.modelo.Pedido;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -50,5 +53,18 @@ public class ClienteService {
 
 	}
 
+	public List<Cliente> obtenerClientesPorTotalPedidos() {
+		// Obtenemos todos los clientes de la base de datos
+		List<Cliente> clientes = clienteDAO.getAll(); // Asegúrate de que el repositorio tiene este método
 
+		// Ordenamos los clientes por el total de sus pedidos, de mayor a menor
+		return clientes.stream()
+				.sorted(Comparator.comparingDouble(this::calcularTotalPedidosCliente).reversed())
+				.collect(Collectors.toList());
+	}
+
+	public double calcularTotalPedidosCliente(Cliente cliente) {
+		// Calculamos el total de los pedidos de un cliente
+		return cliente.getPedidos().stream().mapToDouble(Pedido::getTotal).sum();
+	}
 }

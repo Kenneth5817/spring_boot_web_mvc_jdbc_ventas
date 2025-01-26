@@ -19,4 +19,5 @@ public interface ComercialDAO {
 	public void delete(long id);
 
 	Comercial obtenerComercialPorId(int idComercial);
+	public EstadisticasPedidosDTO obtenerEstadisticasComercial(int idComercial);
 }

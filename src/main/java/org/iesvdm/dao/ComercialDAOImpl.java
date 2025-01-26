@@ -137,4 +137,19 @@ public class ComercialDAOImpl implements ComercialDAO {
 	public Comercial obtenerComercialPorId(int idComercial) {
 		return null;
 	}
+
+	@Override
+	public EstadisticasPedidosDTO obtenerEstadisticasComercial(int idComercial) {
+		PedidoDAOImpl pedidoRepository=new PedidoDAOImpl();
+		List<Pedido> pedidos = pedidoRepository.obtenerPedidosPorComercial(idComercial);
+		int totalPedidos = pedidos.size();
+		double mediaPedidos = pedidos.stream().mapToDouble(Pedido::getTotal).average().orElse(0.0);
+
+		EstadisticasPedidosDTO estadisticas = new EstadisticasPedidosDTO();
+		estadisticas.setTotalPedidos(totalPedidos);
+		estadisticas.setMediaPedidos(mediaPedidos);
+
+		return estadisticas;
+	}
+
 }

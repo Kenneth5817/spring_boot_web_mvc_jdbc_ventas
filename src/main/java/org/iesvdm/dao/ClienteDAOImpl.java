@@ -1,8 +1,11 @@
 package org.iesvdm.dao;
 
 import java.sql.PreparedStatement;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import org.iesvdm.modelo.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -146,5 +150,16 @@ public class ClienteDAOImpl implements ClienteDAO {
 		log.info("Delete de Cliente con {} registros eliminados.", rows);		
 		
 	}
-	
+
+	@Override
+	public List<Cliente> obtenerClientesPorTotalPedidos() {
+		return List.of();
+	}
+
+	@Override
+	public double calcularTotalPedidosCliente(Cliente cliente) {
+		return 0;
+	}
+
+
 }

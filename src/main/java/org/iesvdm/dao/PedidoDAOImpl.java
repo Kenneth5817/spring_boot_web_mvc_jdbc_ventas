@@ -1,7 +1,6 @@
 package org.iesvdm.dao;
 
 import org.iesvdm.modelo.Pedido;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -10,12 +9,12 @@ import java.util.List;
 @Repository
 public class PedidoDAOImpl implements PedidoDAO {
 
-    private final JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    public PedidoDAOImpl(JdbcTemplate jdbcTemplate) {
+    public PedidoDAOImpl() {
         this.jdbcTemplate = jdbcTemplate;
     }
+
 
     // Método para obtener los pedidos de un comercial
     @Override

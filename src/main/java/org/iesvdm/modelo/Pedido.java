@@ -12,6 +12,11 @@ public class Pedido {
     private int id;
     private double total;
     private Date fecha;
+
+    public double getTotal() {
+        return total;
+    }
+
     private int id_cliente;
     private int id_comercial;
 

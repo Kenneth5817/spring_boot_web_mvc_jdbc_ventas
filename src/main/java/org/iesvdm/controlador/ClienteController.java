@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 public class ClienteController {
 	
 	private ClienteService clienteService;
-	
+
 	//Se utiliza inyección automática por constructor del framework Spring.
 	//Por tanto, se puede omitir la anotación Autowired
 	//@Autowired
@@ -36,6 +36,7 @@ public class ClienteController {
 		return "clientes";
 		
 	}
+
 
 	@GetMapping("/clientes/{id}")
 	public String detalle(Model model, @PathVariable Integer id ) {
@@ -57,14 +58,7 @@ public class ClienteController {
 
 	}
 
-	@PostMapping("/clientes/crear")
-	public RedirectView submitCrear(@ModelAttribute("cliente") Cliente cliente) {
-
-		clienteService.newCliente(cliente);
-
-		return new RedirectView("/clientes") ;
-
-	}
+	
 
 	@GetMapping("/fabricantes/editar/{id}")
 	public String editar(Model model, @PathVariable Integer id) {

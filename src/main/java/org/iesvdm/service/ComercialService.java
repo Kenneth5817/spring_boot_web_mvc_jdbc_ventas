@@ -53,10 +53,11 @@ public class ComercialService {
 
     // Obtener el comercial y sus pedidos
     public Comercial obtenerComercialConPedidos(int idComercial) {
+
         Comercial comercial = comercialDAO.obtenerComercialPorId(idComercial);
         if (comercial != null) {
             List<Pedido> pedidos = PedidoDAO.obtenerPedidosPorComercial(idComercial);
-            comercialDAO.update((Comercial) pedidos); // Asumiendo que la clase Comercial tiene una lista de pedidos
+            comercialDAO.update((Comercial) pedidos);
         }
         return comercial;
     }

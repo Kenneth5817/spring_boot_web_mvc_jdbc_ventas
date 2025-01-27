@@ -1,11 +1,12 @@
 package org.iesvdm.dao;
 
+import org.iesvdm.dto.EstadisticasPedidosDTO;
 import org.iesvdm.modelo.Comercial;
 
 import java.sql.PreparedStatement;
 import java.util.Optional;
 import java.util.List;
-import org.iesvdm.modelo.Cliente;
+
 import org.iesvdm.modelo.Pedido;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;

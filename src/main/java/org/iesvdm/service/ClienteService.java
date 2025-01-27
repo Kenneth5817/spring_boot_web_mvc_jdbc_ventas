@@ -2,28 +2,38 @@ package org.iesvdm.service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.iesvdm.dao.ClienteDAO;
+import org.iesvdm.dao.ClienteDAOImpl;
+import org.iesvdm.dto.ClienteDTO;
+import org.iesvdm.mapper.ClienteMapper;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.modelo.Pedido;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClienteService {
-	
+
+	private final ClienteDAOImpl clienteDAOImpl;
 	private ClienteDAO clienteDAO;
-	
+	private ClienteMapper clienteMapper;
 	//Se utiliza inyección automática por constructor del framework Spring.
 	//Por tanto, se puede omitir la anotación Autowired
 	//@Autowired
-	public ClienteService(ClienteDAO clienteDAO) {
+	public ClienteService(ClienteDAO clienteDAO, ClienteDAOImpl clienteDAOImpl) {
 		this.clienteDAO = clienteDAO;
+		this.clienteDAOImpl = clienteDAOImpl;
 	}
 	
 	public List<Cliente> listAll() {
-		
+		List<Cliente>listCliente=clienteDAO.getAll();
+		Map<Integer,Integer> mapNumBYPedIdCli=clienteDAOImpl.getNumeroPedidosPorIDCliente();
+		List<ClienteDTO> ListClienteDTO= (List<ClienteDTO>) listCliente.stream()
+				.map(cliente -> clienteMapper.clienteaClienteDTO
+						(cliente, mapNumBYPedIdCli.get(cliente.getId())));
 		return clienteDAO.getAll();
 	}
 
@@ -55,7 +65,7 @@ public class ClienteService {
 
 	public List<Cliente> obtenerClientesPorTotalPedidos() {
 		// Obtenemos todos los clientes de la base de datos
-		List<Cliente> clientes = clienteDAO.getAll(); // Asegúrate de que el repositorio tiene este método
+		List<Cliente> clientes = clienteDAO.getAll();
 
 		// Ordenamos los clientes por el total de sus pedidos, de mayor a menor
 		return clientes.stream()

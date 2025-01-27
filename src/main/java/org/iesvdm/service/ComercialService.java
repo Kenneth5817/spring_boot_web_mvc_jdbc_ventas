@@ -4,8 +4,6 @@ import org.iesvdm.dao.ComercialDAO;
 import org.iesvdm.dao.PedidoDAO;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.modelo.Pedido;
-
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 

@@ -11,7 +11,7 @@ public interface ClienteDAO {
 	void create(Cliente cliente);
 
 	List<Cliente> getAll();
-	Map<Integer, Integer> getNumeroPedidosPorIDCliente;
+	Map<Integer, Integer> getNumeroPedidosPorIDCliente();
 	Optional<Cliente>  find(int id);
 	
 	void update(Cliente cliente);

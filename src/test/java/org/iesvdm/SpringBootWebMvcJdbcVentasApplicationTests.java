@@ -10,4 +10,8 @@ class SpringBootWebMvcJdbcVentasApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void getNumeros(){
+
+	}
 }

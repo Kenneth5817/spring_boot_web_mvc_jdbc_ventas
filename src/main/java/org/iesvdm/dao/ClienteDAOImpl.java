@@ -158,9 +158,8 @@ public class ClienteDAOImpl implements ClienteDAO {
 		return 0;
 	}
 
-	//@Override
-	Map<Integer, Integer> getNumeroPedidosPorIDCliente(){
-		jdbcTemplate.query("select id, count(*) from cliente left join");
+	@Override
+	public Map<Integer, Integer> getNumeroPedidosPorIDCliente(){
 		return null;
 	}
 

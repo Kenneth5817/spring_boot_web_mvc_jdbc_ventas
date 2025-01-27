@@ -2,6 +2,8 @@ package org.iesvdm.controlador;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import org.iesvdm.mapper.ClienteMapper;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.service.ClienteService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+@AllArgsConstructor
 @Controller
 //Se puede fijar ruta base de las peticiones de este controlador.
 //Los mappings de los métodos tendrían este valor /clientes como
@@ -17,13 +20,11 @@ import org.springframework.web.servlet.view.RedirectView;
 public class ClienteController {
 	
 	private ClienteService clienteService;
-
+	private ClienteMapper clienteMapper;
 	//Se utiliza inyección automática por constructor del framework Spring.
 	//Por tanto, se puede omitir la anotación Autowired
 	//@Autowired
-	public ClienteController(ClienteService clienteService) {
-		this.clienteService = clienteService;
-	}
+
 	
 	//@RequestMapping(value = "/clientes", method = RequestMethod.GET)
 	//equivalente a la siguiente anotación

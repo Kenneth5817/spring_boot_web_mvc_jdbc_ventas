@@ -41,7 +41,6 @@ public class ComercialService {
     }
 
     public void replaceComercial(Comercial comercial) {
-
         comercialDAO.update(comercial);
 
     }

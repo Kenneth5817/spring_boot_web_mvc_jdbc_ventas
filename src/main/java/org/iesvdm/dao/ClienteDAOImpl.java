@@ -1,10 +1,7 @@
 package org.iesvdm.dao;
 
 import java.sql.PreparedStatement;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.iesvdm.modelo.Cliente;
@@ -159,6 +156,11 @@ public class ClienteDAOImpl implements ClienteDAO {
 	@Override
 	public double calcularTotalPedidosCliente(Cliente cliente) {
 		return 0;
+	}
+
+	//@Override
+	Map<Integer, Integer> getNumeroPedidosPorIDCliente(){
+
 	}
 
 

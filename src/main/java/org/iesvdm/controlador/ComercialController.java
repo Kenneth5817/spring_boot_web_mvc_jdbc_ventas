@@ -1,5 +1,6 @@
 package org.iesvdm.controlador;
 import lombok.AllArgsConstructor;
+import org.iesvdm.exception.MiExcepcion;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.service.ComercialService;
 import org.springframework.stereotype.Controller;
@@ -88,5 +89,13 @@ public class ComercialController {
 
         return new RedirectView("/comercial");
     }
+    @GetMapping("/probar-error")
+    public String pruebaError() throws MiExcepcion {
+        throw new MiExcepcion();
+    }
 
+    @GetMapping("/probar-error-generico")
+    public String pruebaErrorGenerico() {
+        throw new RuntimeException("Error inesperado");
+    }
 }

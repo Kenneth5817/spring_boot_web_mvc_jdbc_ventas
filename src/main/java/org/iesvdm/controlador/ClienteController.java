@@ -1,6 +1,7 @@
 package org.iesvdm.controlador;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.iesvdm.exception.MiExcepcion;
 import org.iesvdm.mapper.ClienteMapper;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.service.ClienteService;
@@ -85,6 +86,16 @@ public class ClienteController {
 		return new RedirectView("/clientes");
 	}
 
+
+	@GetMapping("/probar-error")
+	public String pruebaError() throws MiExcepcion {
+		throw new MiExcepcion();
+	}
+
+	@GetMapping("/probar-error-generico")
+	public String pruebaErrorGenerico() {
+		throw new RuntimeException("Error inesperado");
+	}
 
 }
 

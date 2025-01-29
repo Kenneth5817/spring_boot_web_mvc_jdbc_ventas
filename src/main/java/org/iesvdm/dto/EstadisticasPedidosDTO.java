@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.iesvdm.modelo.Cliente;
+
+import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -29,4 +33,8 @@ public class EstadisticasPedidosDTO {
     public void setMediaPedidos(double mediaPedidos) {
         this.mediaPedidos = mediaPedidos;
     }
+
+
+
 }
+

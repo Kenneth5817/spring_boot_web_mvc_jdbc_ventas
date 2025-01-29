@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import org.iesvdm.dto.ClienteDTO;
+import org.iesvdm.mapper.ClienteMapper;
 import org.iesvdm.modelo.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -162,6 +164,5 @@ public class ClienteDAOImpl implements ClienteDAO {
 	public Map<Integer, Integer> getNumeroPedidosPorIDCliente(){
 		return null;
 	}
-
 
 }

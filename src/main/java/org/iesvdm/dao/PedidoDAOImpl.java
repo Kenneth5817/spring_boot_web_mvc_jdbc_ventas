@@ -4,7 +4,9 @@ import org.iesvdm.modelo.Pedido;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class PedidoDAOImpl implements PedidoDAO {
@@ -31,4 +33,26 @@ public class PedidoDAOImpl implements PedidoDAO {
             return pedido;
         });
     }
+
+    @Override
+    public Map<Long, Integer> getNumeroPedidosGroupByIdCliente() {
+
+        return jdbcTemplate.query("""
+									select c.id, count(p.id) from cliente c 
+    									left join pedido p on c.id = p.id_cliente
+									group by c.id
+									""",
+                (rs) -> {
+
+                    Map<Long, Integer> map = new HashMap<>();
+                    while (rs.next()) {
+                        map.put(rs.getLong(1), rs.getInt(2));
+                    }
+
+                    return map;
+                }
+        );
+
+    }
+
 }

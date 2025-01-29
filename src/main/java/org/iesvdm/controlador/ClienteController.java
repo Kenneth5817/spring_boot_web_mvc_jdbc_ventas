@@ -7,6 +7,7 @@ import org.iesvdm.modelo.Cliente;
 import org.iesvdm.service.ClienteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -71,7 +72,7 @@ public class ClienteController {
 
 
 	@PostMapping("/clientes/editar/{id}")
-	public RedirectView submitEditar(@ModelAttribute("clientes") Cliente cliente) {
+	public RedirectView submitEditar(@Validated @ModelAttribute("clientes") Cliente cliente) {
 
 		clienteService.replaceCliente(cliente);
 
@@ -79,7 +80,7 @@ public class ClienteController {
 	}
 
 	@PostMapping("/clientes/borrar/{id}")
-	public RedirectView submitBorrar(@PathVariable Integer id) {
+	public RedirectView submitBorrar(@Validated @PathVariable Integer id) {
 
 		clienteService.deleteCliente(id);
 

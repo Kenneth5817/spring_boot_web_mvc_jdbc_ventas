@@ -31,10 +31,61 @@
 
         <div class="row mb-3">
             <div class="col-3">
-                <label for="nombre" class="form-label" >Nombre</label>
+                <label for="nombre" class="form-label" th:text="#{nombre.notNull}">Nombre</label>
             </div>
             <div class="col-9">
                 <input type="text" id="nombre" th:field="*{nombre}" class="form-control">
+                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="apellido1" class="form-label" th:text="#{apellido1.notNull}">Primer Apellido</label>
+            </div>
+            <div class="col-9">
+                <input type="text" id="apellido1" th:field="*{apellido1}" class="form-control">
+                <span th:if="${#fields.hasErrors('apellido1')}" th:errors="*{apellido1}"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="apellido2" class="form-label" th:text="#{apellido2.size}">Segundo Apellido</label>
+            </div>
+            <div class="col-9">
+                <input type="text" id="apellido2" th:field="*{apellido2}" class="form-control">
+                <span th:if="${#fields.hasErrors('apellido2')}" th:errors="*{apellido2}"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="ciudad" class="form-label" th:text="#{ciudad.notNull}">Ciudad</label>
+            </div>
+            <div class="col-9">
+                <input type="text" id="ciudad" th:field="*{ciudad}" class="form-control">
+                <span th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="categoria" class="form-label" th:text="#{categoria.max}">Categoría</label>
+            </div>
+            <div class="col-9">
+                <input type="text" id="categoria" th:field="*{categoria}" class="form-control">
+                <span th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="email" class="form-label" th:text="#{email.email}">Correo Electrónico</label>
+            </div>
+            <div class="col-9">
+                <input type="email" id="email" th:field="*{email}" class="form-control">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             </div>
         </div>
 

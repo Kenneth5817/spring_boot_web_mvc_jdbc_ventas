@@ -5,6 +5,7 @@ import org.iesvdm.modelo.Comercial;
 import org.iesvdm.service.ComercialService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -55,7 +56,7 @@ public class ComercialController {
     }
 
     @PostMapping("/comercial/crear")
-    public RedirectView submitCrear(@ModelAttribute("comercial") Comercial comercial) {
+    public RedirectView submitCrear(@Validated  @ModelAttribute("comercial") Comercial comercial) {
 
         comercialService.newComercial(comercial);
 
@@ -75,7 +76,7 @@ public class ComercialController {
 
 
     @PostMapping("/comercial/editar/{id}")
-    public RedirectView submitEditar(@ModelAttribute("producto") Comercial comercial) {
+    public RedirectView submitEditar(@Validated @ModelAttribute("producto") Comercial comercial) {
 
         comercialService.replaceComercial(comercial);
 
@@ -83,7 +84,7 @@ public class ComercialController {
     }
 
     @PostMapping("/comercial/borrar/{id}")
-    public RedirectView submitBorrar(@PathVariable Integer id) {
+    public RedirectView submitBorrar(@Validated @PathVariable Integer id) {
 
         comercialService.deleteComercial(id);
 

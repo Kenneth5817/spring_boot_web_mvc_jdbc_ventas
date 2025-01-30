@@ -18,7 +18,6 @@ import java.util.List;
 //@RequestMapping("/clientes")
 @AllArgsConstructor
 public class ComercialController {
-
     public ComercialService comercialService;
 
     //Se utiliza inyección automática por constructor del framework Spring.
@@ -77,9 +76,7 @@ public class ComercialController {
 
     @PostMapping("/comercial/editar/{id}")
     public RedirectView submitEditar(@Validated @ModelAttribute("producto") Comercial comercial) {
-
         comercialService.replaceComercial(comercial);
-
         return new RedirectView("/comercial");
     }
 

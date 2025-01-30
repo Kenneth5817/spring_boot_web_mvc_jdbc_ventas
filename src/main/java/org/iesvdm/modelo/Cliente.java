@@ -18,12 +18,12 @@ import java.util.List;
 public class Cliente {
 	
 	private long id;
-	// Validación: obligatorio, longitud máxima de 30 caracteres
+	//Tiene que ser obligatorio, como mucho puede tener 30 caracteres
 	@NotNull(message = "El nombre es obligatorio")
 	@Size(max = 30, message = "El nombre no puede tener más de 30 caracteres")
 	private String nombre;
 
-	// Validación: obligatorio, longitud máxima de 30 caracteres
+	//Es obligatorio, como mucho el apellido tendrá 30 caracteres
 	@NotNull(message = "El primer apellido es obligatorio")
 	@Size(max = 30, message = "El primer apellido no puede tener más de 30 caracteres")
 	private String apellido1;
@@ -31,18 +31,18 @@ public class Cliente {
 	@Size(max = 30, message = "El segundo apellido no puede tener más de 30 caracteres")
 	private String apellido2;
 
-	//Validación: obligatorio, longitud máxima de 50 caracteres
+	//Campo que no se puede quedar vacio, como mucho 50 caracteres
 	@NotNull(message = "La ciudad es obligatoria")
 	@Size(max = 50, message = "La ciudad no puede tener más de 50 caracteres")
 	private String ciudad;
 
-	//Validación: obligatorio, rango de valores de 100 a 1000
+	//Campo obligatorio, valores deben de estar entre 100 a 1000
 	@NotNull(message = "La categoría es obligatoria")
 	@Min(value = 100, message = "La categoría debe ser al menos 100")
 	@Max(value = 1000, message = "La categoría no puede ser mayor que 1000")
 	private int categoria;
 
-	//Validación: obligatorio, formato de correo electrónico
+	//Campo obligatorio, establecemos el correo
 	@NotNull(message = "El correo electrónico es obligatorio")
 	@Email(message = "El correo electrónico no tiene un formato válido")
 	private String email;

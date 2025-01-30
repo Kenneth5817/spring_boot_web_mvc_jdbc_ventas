@@ -18,7 +18,7 @@ import java.util.List;
 //@RequestMapping("/clientes")
 @AllArgsConstructor
 public class ComercialController {
-    public ComercialService comercialService;
+    public static ComercialService comercialService;
 
     //Se utiliza inyección automática por constructor del framework Spring.
     //Por tanto, se puede omitir la anotación Autowired

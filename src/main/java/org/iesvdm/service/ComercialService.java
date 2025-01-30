@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ComercialService {
-    private ComercialDAO comercialDAO;
+    private final ComercialDAO comercialDAO;
     private final PedidoDAO pedidoDAO;
 
     //Se utiliza inyección automática por constructor del framework Spring.
